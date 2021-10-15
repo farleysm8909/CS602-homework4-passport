@@ -24,8 +24,7 @@ const userSchema = new mongoose.Schema({
       type: String,
       required: [true, "password is required"],
       minlength: 8,
-  },
-  new_pwd: String //http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/
+  }
 });
 
 userSchema.pre("save", async function (next) {

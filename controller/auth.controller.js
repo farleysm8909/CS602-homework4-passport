@@ -53,8 +53,10 @@ export default {
     res.status(200).json({status: "success", data: {message: "Congratualations"}});
   },
 
+
+
   /* Sam's Code */
-  // options: reset pwd, delete account, forgot pwd
+  // options: reset pwd, delete account, forgot pwd, logout
   resetpwd: (req, res, next) => {
     passport.authenticate("resetpwd", {session: false}, (err, user, info) => {
       if (err || !user) {
@@ -67,5 +69,23 @@ export default {
       // generate a signed son web token with the contents of user object and return it in the response
       createCookieFromToken(user, 202, req, res);
     })(req, res, next);
+  },
+
+
+  delAcct: (req, res, next) => {
+    passport.authenticate("delacct", {session: false}, (err, user, info) => {
+      if (err || !user) {
+        let message = err;
+        if (info) {
+          message = info.message;
+        }
+        return res.status(401).json({status: "error", error: {message}});
+      }
+      // generate a signed son web token with the contents of user object and return it in the response
+      //createCookieFromToken(user, 203, req, res);
+      res.status(200).json({status: "Account deleted successfully"});
+
+    })(req, res, next);
   }
 };
+

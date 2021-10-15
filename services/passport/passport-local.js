@@ -76,7 +76,7 @@ passport.use(
               return cb(null, false, { message: 'Incorrect email or password.'});
           }
   
-          const checkPassword = await user.comparePassword(password); // make sure user knows old pwd
+          const checkPassword = await user.comparePassword(password); // make sure user knows old pwd (authenticate)
   
           if (!checkPassword) {
               return cb(null, false, {message: 'Incorrect email or password.'});
@@ -86,6 +86,33 @@ passport.use(
           await user.save();
 
           return cb(null, user, {message: 'Reset Password Successfully'});
+  
+      } catch (err) {
+          console.log(err);
+          return cb(null, false, {statusCode: 400, message: err.message});
+      }
+    }),
+  );
+
+  passport.use(
+    'delacct',
+    new Strategy(authFields, async (req, email, password, cb) => { // cb = callback
+      try {
+          const user = await User.findOne({$or: [{email}, {userName: email}]}); // verify that user exists
+  
+          if (!user || !user.password) {
+              return cb(null, false, { message: 'Incorrect email or password.'});
+          }
+  
+          const checkPassword = await user.comparePassword(password); // make sure user knows old pwd (authenticate)
+  
+          if (!checkPassword) {
+              return cb(null, false, {message: 'Incorrect email or password.'});
+          }
+          // delete account
+          await user.delete();
+
+          return cb(null, user, {message: 'Account Deleted Successfully'}); // null bc first param is error object, so null is no errors
   
       } catch (err) {
           console.log(err);
