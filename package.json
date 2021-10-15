@@ -1,0 +1,38 @@
+{
+  "name": "local_mongo_strategy",
+  "version": "1.0.0",
+  "description": "Example using Passport.JS with Mongo and Express.JS",
+  "main": "index.js",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "6.0.9",
+    "morgan": "1.10.0",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "validator": "^13.6.0"
+  },
+  "devDependencies": {
+    "cross-env": "7.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: You need to create tests!!\" && exit 1"
+  },
+  "keywords": [
+    "passportjs",
+    "node",
+    "express",
+    "Mongo"
+  ],
+  "author": "Adopted from <https://ng.linkedin.com/in/sijuade-ajagunna-064458184> (taken from...)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "\u0016https://github.com/farleysm8909/CS602-homework4-passport.git"
+  }
+}
