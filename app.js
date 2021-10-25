@@ -38,6 +38,6 @@ jasmine.loadConfigFile('spec/support/jasmine.json');
 jasmine.configureDefaultReporter({
     showColors: false
 });
-//jasmine.execute(); uncomment this line to run tests
+//jasmine.execute(); // uncomment this line to run tests
 
 export default app;
