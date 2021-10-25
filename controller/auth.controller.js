@@ -44,7 +44,7 @@ export default {
         }
         return res.status(401).json({status: "error", error: {message}});
       }
-      // generate a signed son web token with the contents of user object and return it in the response
+      // generate a signed json web token with the contents of user object and return it in the response
       createCookieFromToken(user, 200, req, res);
     })(req, res, next);
   },
@@ -56,7 +56,8 @@ export default {
 
 
   /* Sam's Code */
-  // options: reset pwd, delete account, forgot pwd, logout
+  // options for hw: reset pwd, delete account, forgot pwd, logout
+  // chosen: reset pwd, delete account
   resetpwd: (req, res, next) => {
     passport.authenticate("resetpwd", {session: false}, (err, user, info) => {
       if (err || !user) {
@@ -66,7 +67,7 @@ export default {
         }
         return res.status(401).json({status: "error", error: {message}});
       }
-      // generate a signed son web token with the contents of user object and return it in the response
+      // generate a signed json web token with the contents of user object and return it in the response
       createCookieFromToken(user, 202, req, res);
     })(req, res, next);
   },

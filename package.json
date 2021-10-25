@@ -18,10 +18,11 @@
     "validator": "^13.6.0"
   },
   "devDependencies": {
-    "cross-env": "7.0.3"
+    "cross-env": "7.0.3",
+    "jasmine": "^3.10.0"
   },
   "scripts": {
-    "test": "echo \"Error: You need to create tests!!\" && exit 1"
+    "test": "jasmine"
   },
   "keywords": [
     "passportjs",

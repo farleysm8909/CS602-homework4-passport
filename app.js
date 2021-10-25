@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser';
 import errorHandler from "./middleware/errorHandler.js";
 import { NotFoundError } from "./helpers/errors.js";
 import authRouter from "./routes/auth.route.js";
+import Jasmine from "jasmine";
 
 config();
 
@@ -28,5 +29,15 @@ app.all("*", (req, res) => {
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(errorHandler);
+
+/* Bonus: Jasmine */
+
+const jasmine = new Jasmine();
+
+jasmine.loadConfigFile('spec/support/jasmine.json');
+jasmine.configureDefaultReporter({
+    showColors: false
+});
+jasmine.execute();
 
 export default app;
