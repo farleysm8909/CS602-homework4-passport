@@ -1,5 +1,5 @@
 import User from '../../model/user.model.js';
-import assert from 'assert'; // learned about assert and wanted to play around with it
+import assert from 'assert'; // learned about assert and decided to play around with it
 
 describe("User model tests", function() {
 
@@ -26,7 +26,7 @@ describe("User model tests", function() {
         }));
     });
 
-    // Jasmine test #4: checkExistingField   (false)       used: https://stackoverflow.com/questions/31528200/jasmine-test-for-object-properties
+    // Jasmine test #4: checkExistingField   (false) 
     it("[checkExistingField] should return null when there are no documents containing the specified field/value in User db", async () => {
         const nonexistent_username = "idontexist";
         expect(await User.checkExistingField('userName', nonexistent_username)).toEqual(null);

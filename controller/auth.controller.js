@@ -82,8 +82,7 @@ export default {
         }
         return res.status(401).json({status: "error", error: {message}});
       }
-      // generate a signed son web token with the contents of user object and return it in the response
-      //createCookieFromToken(user, 203, req, res);
+      // generate a signed json web token with the contents of user object and return it in the response
       res.status(200).json({status: "Account deleted successfully"});
 
     })(req, res, next);
